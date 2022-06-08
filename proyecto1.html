@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--Creado por:-->
+<!--Pablo Lorente Martínez-->
+<!--Fernando Soria Mascarós-->
+<!--Manuel Alejandro Cercós Pérez-->
+<html>
+
+  <head>
+
+    <meta charset="utf-8">
+    
+    <title> Atracción de feria </title>
+    
+    <style type="text/css">
+      canvas {border: 1px solid black;}
+    </style>
+
+    <script id="myVertexShader" 
+          type="x-shader/x-vertex">#version 300 es
+      
+      uniform mat4 projectionMatrix;
+      uniform mat4 modelViewMatrix;
+      
+      in vec3 VertexPosition;
+      void main()  {
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(VertexPosition, 1.0);
+      
+      }
+      
+    </script>
+    
+    <script id="myFragmentShader" 
+          type="x-shader/x-fragment">#version 300 es
+      
+      precision mediump float;
+      
+      uniform vec4 myColor;
+      out vec4 fragmentColor;
+      
+      void main() {
+
+        fragmentColor = myColor;
+      
+      }
+      
+    </script>
+
+  </head>
+  
+  <body>
+      
+    <button>Play-Pause</button> 
+    <button>Draw mode</button> 
+    <button>Next frame</button> 
+    <button>Turn on-off</button> 
+    
+    <b>Light mode</b>
+    <button>0</button>
+    <button>1</button> 
+    <button>2</button> 
+    <button>3</button> 
+
+    <br><br>
+    <b>Moving mode</b>
+    <br>
+    <button>Mode 1</button>
+    <button>Mode 2</button> 
+    <button>Mode 3</button> 
+    <br><br>
+    
+    <b>Rotation speed</b>
+    <button>More</button>
+    <button>Less</button>
+    <button>Reset</button>
+
+    <br>
+    <br>
+    
+    <canvas id="myCanvas" width="600" height="600">
+      El Navegador no soporta HTML5
+    </canvas>
+    
+    <script src="gl-matrix-min.js"></script>
+    <script src="primitivasG.js"></script>
+    <script src="proyecto1.js"></script>
+
+  </body>
+
+</html>
